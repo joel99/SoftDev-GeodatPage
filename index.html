@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Intro to Geodatabases</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <p style="color:#CCCCCC">
+              Menu
+            </p>
+          </li>
+          <li>
+            <a href="#intro">Overview</a>
+          </li>		
+          <li>
+            <a href="#arch1">Architecture</a>
+          </li>
+	  <li>
+	    <a href="#table">Tables</a>
+	  </li>	  	  
+	  <li>
+	    <a href="#feat">Features</a>
+	  </li>
+	  <li>
+	    <a href="#raster">Raster</a>
+	  </li>	  
+	  <li>
+	    <a href="#ref">References</a>
+	  </li>
+        </ul>
+      </div>
+      <!-- /#sidebar-wrapper -->
+
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+	  <div id="intro">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1>Geodatabases</h1>
+		<h3>A short introduction to geodatabases and ArcGIS technology</h3>
+                <p>Geodatabases are data structures specializing in storing location-based physical phenomena or statistics. They are a specific applicaiton of GIS.</p>
+		<p>GIS stands for Georgraphic Information Science or Georgraphic Information System. The system is a type of Spatial Data infrastructure. Combined with AI, GIS's can power intelligent decision-making platforms.</p>
+		<p>Geodatabases are widely used, in fields like real estate, public health (epidemiology), crime mapping, national defense, sustainable development, natural resources, climatology, location based services.
+		</p>
+              </div>
+	    </div>
+	  </div>
+
+	  <div id="arch1">
+	    <div class="row">
+	      <div class="col-lg-12">
+		<h2>Architecture Basics</h2>
+	      </div>
+	    </div>
+	    <div class="row">
+	      <div class="col-lg-6">
+		<p>Geodatabases store data using primarily a <a href="https://www.w3schools.com/sql/">SQL</a> DBMS, following an object-relational model. Object-relational models utilize the familiar SQL relational model, but allow for creation of user-defined data types.</p>
+		<p>Geodatabases are composed of system tables and user data. Custom data types are formatted using data in system tables (XML) and combined with user data for end presentation.</p>
+		<p>User data is defined in three varieties.</p>
+		<p><strong>Tables</strong> are the traditional structure, holding rows of data with corresponding field types</p>
+		<p><strong>Feature classes</strong> are tables, but include shape data as well. Shape data can hold point, line, or polgyon geometry.</p>
+		<p><strong>Raster datasets</strong> contain raster information, raw imagery or geographic data that is indexed with table metadata.</p>
+		<p>More dataset types can be defined per geodatabase.</p>
+	      </div>
+	      <div class="col-lg-6">
+		<img src="imgs/table.png"/>
+	      </div>    
+	    </div>
+	    
+	    
+	    <div id="table">
+	      <div class="row">
+		<div class="col-lg-12">
+		  <h2>Tables and Feature Classes</h2>
+		</div>
+	      </div>
+	      <div class="row">
+		<div class="col-lg-12">
+		  <p>Tables can hold all the same data types as standard SQL. The BLOB type is often used for CAD geometry and symbols. GUIDs (<strong>G</strong>lobablly <strong>U</strong>nique <strong>ID</strong>entifiers are often used to synchronize/avoid conflict with geodatabase data across organization.</p>
+		  <p>Feature classes define geometric elements (mainly vectorized) in homogenous collections.</p>
+		  <p>Points, lines, and polygons are in traditional spatial databases, but geodatabases add annotation, dimension, multipoint, and multipatch. See field descriptions <a href="http://desktop.arcgis.com/en/arcmap/10.3/manage-data/geodatabases/feature-class-basics.htm">here</a>.</p>
+		  <p>Feature classes can be extended to track more complex data like topology, network data.</p>
+		  <p>Features of these two dataset structures include the ability to define attribute domains, relationship classes, and subtypes.</p>
+		</div>
+	      </div>
+	    </div>
+
+	    <div id="feat">
+	      <div class="row">
+		<div class="col-lg-12">
+		  <h2>Features</h2>
+		</div>
+	      </div>
+	      <div class="row">
+		<div class="col-lg-12">
+		  <p>Features are described by feature type, discrete parts, curves, vertex coordinates, linear measures </p>
+		  <p>Note: Edges can be straight, or follow a circular or elliptical arc, or follow a bezier curve.</p>
+		  <p>Linear measures allow linear referencing: an indicator that describes the feature without giving coordinates for the location. Also known as m-values, linear measures allow for benchmarking, or parametrization, of edges/paths, based on arbitrary, useful parameters.</p>
+		  <p>A path/feature can have multiple sets of m-values applied to it. This technique allows for <em>dynamic segmentation</em>, which allows data-dense descriptions of features with only one copy of physical location.</p>
+		  <p>Read more about dynamic segmentation <a target="_blank" href="http://desktop.arcgis.com/en/arcmap/10.3/guide-books/linear-referencing/dynamic-segmentation.htm">here</a>.</p>
+		</div>
+	      </div>
+	    </div>
+	    
+	    <div id="raster">	      
+	      <div class="row">
+		<div class="col-lg-12">
+		  <h2>Raster Basics</h2>
+		</div>		 
+	      </div>	      
+	      <div class="row">
+		<div class="col-lg-6">
+		  <br><br><br><br><br><br>
+		  <p>Raster data usually comes in the form of images. Mosaicking is the technique of breaking raster data into chunks and tablifying for quicker manipulation. Raster catalogs organize images in time/location.</p>
+		  <p>In processing raster data, users deal with <em>resolution</em> and <em>tolerance</em>. Resolution offers a measure of precision usually given by the raw data, and tolerance is adjusted to automatically create feature classes based on image processing techniques. 
+		</div>
+		<div class="col-lg-6">
+		  <img src="imgs/mosaic.png"/>
+		</div>
+	      </div>
+	    </div>
+	    
+	    
+	    <div id="#ref">
+	      <div class="row">
+		<div class="col-lg-12">
+		  <h2>References/Further Reading</h2>
+		</div>		 
+	      </div>
+	      <div class="row">
+		<div class="col-lg-12">
+		  <a target="_blank" href="http://desktop.arcgis.com/en/arcmap/10.3/manage-data/geodatabases/">ArcGIS Complete Documentation</a>
+		  <br>
+		  <a target="_blank" href="https://en.wikipedia.org/wiki/Spatial_database#Geodatabase">Wikipedia</a>
+		  <br>
+		  <a target="_blank" href="http://www.opengeospatial.org/">OGC</a>
+		  <br>
+		  <a target="_blank" href="https://www.w3.org/standards/semanticweb/">Semantic Web</a>
+		  <br>
+		  <a target="_blank" href="https://docs.google.com/presentation/d/1F8z3-6mapTiAIyHEQfEfjVsbgAD-kwkL3n3nUUiZvZo/edit?usp=sharing">Powerpoint</a>
+		</div>
+	      </div>
+	    </div>
+
+	    <div class="row center-block text-center">
+	      <div class="col-lg-12">
+		<p>A page by Joel Ye for Mr. DW</p>
+		<p>Stuyvesant Software Development, Spring 17</p>
+		<p>Powered by Bootstrap, Simple Sidebar MIT Template</p>
+	      </div>
+	    </div>
+          </div>	     
+	</div>
+	<!-- /#page-content-wrapper -->
+
+      </div>
+      <!-- /#wrapper -->
+
+      <!-- jQuery -->
+      <script src="js/jquery.js"></script>
+
+      <!-- Bootstrap Core JavaScript -->
+      <script src="js/bootstrap.min.js"></script>
+
+      <!-- Menu Toggle Script -->
+      <script>
+	$("#wrapper").toggleClass("toggled");
+      </script>
+
+  </body>
+
+</html>
